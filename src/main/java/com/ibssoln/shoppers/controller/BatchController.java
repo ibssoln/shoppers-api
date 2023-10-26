@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -19,9 +20,9 @@ public class BatchController {
     @Autowired
     private BatchService batchService;
 
-    @RequestMapping(value = "/inventory", produces = {"application/json"}, consumes = {"application/json"}, method = RequestMethod.POST)
-    public ResponseEntity<Void> updateInventory(){
-        batchService.updateInventory();
+    @RequestMapping(value = "/inventory", method = RequestMethod.POST) //produces = {"application/json"}, consumes = {"application/json"},
+    public ResponseEntity<Void> updateInventory(@RequestParam String type){
+        batchService.updateInventory(type);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @RequestMapping(value = "/items", method = RequestMethod.GET) //produces = {"application/json"}, consumes = {"application/json"},
