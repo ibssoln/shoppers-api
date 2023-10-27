@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS ITEM;
+DROP TABLE IF EXISTS VENDOR;
+
 CREATE TABLE VENDOR (
     vendor_id varchar(36) NOT NULL,
     name varchar(255),

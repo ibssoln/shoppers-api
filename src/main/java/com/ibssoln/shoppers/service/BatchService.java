@@ -23,14 +23,14 @@ public class BatchService {
     private ItemRepository itemRepository;
 
     @Async("globalBatchExecutor")
-    public CompletableFuture<String> updateInventory(String type){
+    public CompletableFuture<String> updateInventory(String type, String vendorName){
         try{
             LocalDateTime dateTime = LocalDateTime.now();
             log.error("#Shoppers - fill inventory - type: {}, dateTime: {}", type, dateTime);
             List<Item> itemsList = new ArrayList<>();
             switch (type){
-                case "grocery":
-                    itemRepository.findAll().forEach(itemsList::add);
+                case "specific":
+                    itemsList = itemRepository.getItemsByVendorName(vendorName);
                     break;
                 default:
                     throw new ShoppersException("Invalid type of inventory was requested.");

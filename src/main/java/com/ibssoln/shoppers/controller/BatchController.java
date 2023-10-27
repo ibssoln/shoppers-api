@@ -1,5 +1,7 @@
 package com.ibssoln.shoppers.controller;
 
+import com.ibssoln.shoppers.entity.Item;
+import com.ibssoln.shoppers.repo.ItemRepository;
 import com.ibssoln.shoppers.service.BatchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +22,18 @@ public class BatchController {
     @Autowired
     private BatchService batchService;
 
+    @Autowired
+    private ItemRepository itemRepository;
+
     @RequestMapping(value = "/inventory", method = RequestMethod.POST) //produces = {"application/json"}, consumes = {"application/json"},
-    public ResponseEntity<Void> updateInventory(@RequestParam String type){
-        batchService.updateInventory(type);
+    public ResponseEntity<Void> updateInventory(@RequestParam String type, @RequestParam String vendorName){
+        batchService.updateInventory(type, vendorName);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @RequestMapping(value = "/items", method = RequestMethod.GET) //produces = {"application/json"}, consumes = {"application/json"},
-    public ResponseEntity<List<String>> test(){
-        return new ResponseEntity(List.of("abc", "def"), HttpStatus.OK);
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public ResponseEntity<List<Item>> test(@RequestParam String type){
+        List<Item> items = itemRepository.getItemsByVendorName(type);
+        return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
 }
