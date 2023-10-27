@@ -3,6 +3,9 @@ package com.ibssoln.shoppers.dao;
 import com.ibssoln.shoppers.entity.Item;
 import com.ibssoln.shoppers.repo.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ItemDaoImpl {
 
     @Autowired

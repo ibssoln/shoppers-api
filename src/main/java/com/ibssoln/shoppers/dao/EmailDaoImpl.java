@@ -2,7 +2,9 @@ package com.ibssoln.shoppers.dao;
 
 import com.ibssoln.shoppers.domain.exception.ShoppersException;
 import com.ibssoln.shoppers.entity.Item;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmailDaoImpl {
 
     public void sendEmailNotification(Item item) throws ShoppersException {
