@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
+import lombok.Builder;
 
 @XmlRootElement(name = "fillItemInventoryByFactoryCANRequest", namespace = "http://inventory.soap.inbound.shoppers.ibssoln.com/")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -13,6 +14,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "arg0",
     "arg1"
 })
+@Builder
 public class FillItemInventoryByFactoryCANRequest {
 
     @XmlElement(name = "arg0", namespace = "")
