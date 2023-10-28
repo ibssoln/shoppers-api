@@ -1,11 +1,10 @@
 package com.ibssoln.shoppers.dao;
 
 import com.ibssoln.shoppers.entity.Inventory;
-import com.ibssoln.shoppers.entity.Item;
 import com.ibssoln.shoppers.service.BatchService;
 import com.ibssoln.shoppers.service.FTPService;
 import com.ibssoln.shoppers.service.InventoryService;
-import com.ibssoln.shoppers.view.FileInfo;
+import com.ibssoln.shoppers.dto.FileInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

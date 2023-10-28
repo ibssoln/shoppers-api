@@ -2,9 +2,7 @@ package com.ibssoln.shoppers.service;
 
 import com.ibssoln.shoppers.dao.ItemDaoImpl;
 import com.ibssoln.shoppers.entity.Item;
-import com.ibssoln.shoppers.entity.Vendor;
-import com.ibssoln.shoppers.repo.ItemRepository;
-import com.ibssoln.shoppers.view.FileInfo;
+import com.ibssoln.shoppers.dto.FileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
