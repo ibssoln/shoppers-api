@@ -43,7 +43,7 @@ public class BatchService {
             log.error("#Shoppers - fill inventory - type: {}, dateTime: {}", type, dateTime);
             List<Item> itemsList = new ArrayList<>();
             switch (type){
-                case "specific":
+                case "vendorSpecific":
                     itemsList = itemRepository.getItemsByVendorName(vendorName);
                     break;
                 default:
@@ -95,7 +95,7 @@ public class BatchService {
     private Map<String, String> processRequest(String id){
         Map<String, String> taskResult = new HashMap<>();
         boolean failed = false;
-        String status = batchDaoImpl.fillItem(id);
+        String status = batchDaoImpl.batchSend(id);
         if (status.equalsIgnoreCase("OK")){
             log.info("Item was filled successfully for item id: {}", id);
             Item item = null;
