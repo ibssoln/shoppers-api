@@ -14,6 +14,7 @@ CREATE TABLE VENDOR (
     vendor_id varchar(36) NOT NULL,
     name varchar(255),
     address varchar(255),
+    factory_loc char(3),
     PRIMARY KEY (vendor_id)
 );
 

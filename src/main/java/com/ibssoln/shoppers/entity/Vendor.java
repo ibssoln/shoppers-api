@@ -25,4 +25,7 @@ public class Vendor implements Serializable {
     @Column(name="address")
     private String address;
 
+    @Column(name="factory_loc")
+    private String factoryLoc;
+
 }
