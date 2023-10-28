@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableAsync
-@ComponentScan(basePackages={"com.ibssoln.shoppers.soap.inventory", "com.ibssoln.shoppers.soap.inventory.view", "com.ibssoln.shoppers.soap.inventory.endpoint"})
+//@ComponentScan(basePackages={"com.ibssoln.shoppers.soap.inventory", "com.ibssoln.shoppers.soap.inventory.view", "com.ibssoln.shoppers.soap.inventory.endpoint"})
 public class ShoppersApplication {
 
 	public static void main(String[] args) {

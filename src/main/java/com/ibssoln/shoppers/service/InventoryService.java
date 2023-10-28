@@ -3,13 +3,11 @@ package com.ibssoln.shoppers.service;
 import com.ibssoln.shoppers.dao.ItemDaoImpl;
 import com.ibssoln.shoppers.entity.Item;
 import com.ibssoln.shoppers.dto.FileInfo;
-import com.ibssoln.shoppers.soap.inventory.view.FillItemInventoryByFactoryCANRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceMessageCallback;
-
 import java.util.Objects;
 
 @Service
@@ -28,8 +26,8 @@ public class InventoryService {
                    log.info("Sending web service to CAN for id {}", itemId);
 //                   String samlString = ""; //tokenProvider.getWSSecurityToken();
 //                   WebServiceMessageCallback callBack = new WebServiceMessageCallbackImpl(samlString);
-                   FillItemInventoryByFactoryCANRequest request = FillItemInventoryByFactoryCANRequest.builder().arg0(itemId).arg1(fileInfo.getFileName()).build();
-                   result = sendFillItemInventoryByFactoryCANRequest(request);
+//                   FillItemInventoryByFactoryCANRequest request = FillItemInventoryByFactoryCANRequest.builder().arg0(itemId).arg1(fileInfo.getFileName()).build();
+//                   result = sendFillItemInventoryByFactoryCANRequest(request);
                }else if (vendorLocation.equalsIgnoreCase("USA")){
                    log.info("Sending web service to USA for id {}", itemId);
                    //TODO (MQ)
@@ -48,9 +46,9 @@ public class InventoryService {
         return result;
     }
 
-    private String sendFillItemInventoryByFactoryCANRequest(FillItemInventoryByFactoryCANRequest request){
-        //call soap client
-        return "SENT_CAN";
-    }
+//    private String sendFillItemInventoryByFactoryCANRequest(FillItemInventoryByFactoryCANRequest request){
+//        //call soap client
+//        return "SENT_CAN";
+//    }
 
 }
