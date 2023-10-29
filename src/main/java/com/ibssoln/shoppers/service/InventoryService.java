@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ws.client.WebServiceClientException;
 //import org.springframework.ws.client.core.WebServiceMessageCallback;
 import java.util.Objects;
 
@@ -44,9 +45,9 @@ public class InventoryService {
                    result = "NO_TARGET_TO_SEND";
                }
            }
-//        } catch (WebServiceClientException e){
-//            result = "WS_FAILED";
-//            log.error("WebServiceClientException occurred while sending inventory order for id {}", itemId, e);
+        } catch (WebServiceClientException e){
+            result = "WS_FAILED";
+            log.error("WebServiceClientException occurred while sending inventory order for id {}", itemId, e);
         } catch (Exception e){
             result = "WS_FAILED";
             log.error("Exception occurred while sending inventory order for id {}", itemId, e);
