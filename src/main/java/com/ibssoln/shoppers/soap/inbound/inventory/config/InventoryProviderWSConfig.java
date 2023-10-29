@@ -14,6 +14,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class InventoryProviderWSConfig extends WsConfigurerAdapter {
+    //http://localhost:8080/ws/inventoryProviderService.wsdl
     @Bean
     public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
