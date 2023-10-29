@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableAsync
-@ComponentScan(basePackages = {"com.ibssoln.shoppers.*", "com.ibssoln.shoppers.soap.inbound.inventory.config", "com.ibssoln.shoppers.soap.inbound.inventory.endpoint"})
+@ComponentScan(basePackages = {"com.ibssoln.shoppers.*", "com.ibssoln.shoppers.soap.inbound.inventory.config", "com.ibssoln.shoppers.soap.inbound.inventory.endpoint", "com.ibssoln.shoppers.soap.outbound.inventory.config", "com.ibssoln.shoppers.soap.outbound.inventory.client"})
 public class ShoppersApplication {
 
 	public static void main(String[] args) {
