@@ -6,12 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
 import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableAsync
-//@ComponentScan(basePackages={"com.ibssoln.shoppers.soap.inventory", "com.ibssoln.shoppers.soap.inventory.view", "com.ibssoln.shoppers.soap.inventory.endpoint"})
+@ComponentScan(basePackages = {"com.ibssoln.shoppers.*", "com.ibssoln.shoppers.soap.inbound.inventory.config", "com.ibssoln.shoppers.soap.inbound.inventory.endpoint"})
 public class ShoppersApplication {
 
 	public static void main(String[] args) {

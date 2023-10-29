@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://inventory.inbound.soap.shoppers.ibssoln.com/" xmlns:tns="http://inventory.inbound.soap.shoppers.ibssoln.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="provideInventoryCANRequest" type="tns:provideInventoryCANRequest"/>
+
+  <xs:element name="provideInventoryCANResponse" type="tns:provideInventoryCANResponse"/>
+
+  <xs:complexType name="provideInventoryCANRequest">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="1"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="provideInventoryCANResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
