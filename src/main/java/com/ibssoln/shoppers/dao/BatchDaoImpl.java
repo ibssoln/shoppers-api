@@ -43,7 +43,7 @@ public class BatchDaoImpl {
         }
         String result = inventoryService.sendInventoryOrder(itemId, fileInfo);
         if(StringUtils.isEmpty(result) || result.equals("INVALID_ITEM") || result.equals("WS_FAILED")){
-            log.info("Failed to submit the request to Web Service for id {}", itemId);
+            log.info("Failed to submit the request to Web Service for id {}, result {}", itemId, result);
             status = "WS_FAILED";
         }else if (result.equals("NO_TARGET_TO_SEND")){
             log.info("No target to send for id {}", itemId);

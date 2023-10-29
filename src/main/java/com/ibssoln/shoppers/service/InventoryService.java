@@ -29,14 +29,7 @@ public class InventoryService {
            if(Objects.nonNull(item)){
                String vendorLocation = item.getVendor().getFactoryLoc();
                if(vendorLocation.equalsIgnoreCase("CAN")){
-                   log.info("Sending web service to CAN for id {}", itemId);
-                   //------- callback (security) -----
-//                   String samlString = ""; //tokenProvider.getWSSecurityToken();
-//                   WebServiceMessageCallback callBack = new WebServiceMessageCallbackImpl(samlString);
-//                   ProvideInventoryCANResponse response = inventoryProviderWSClient.callInventoryProvider(itemId, fileInfo.getFileName(), callBack);
-                   //------- callback (security) -----
-                   ProvideInventoryCANResponse response = inventoryProviderWSClient.callInventoryProvider(itemId, fileInfo.getFileName());
-                   result = response.getReturn();
+                   result = sendInventoryFillRequest(itemId, fileInfo);
                }else if (vendorLocation.equalsIgnoreCase("USA")){
                    log.info("Sending web service to USA for id {}", itemId);
                    //TODO (MQ)
@@ -55,9 +48,16 @@ public class InventoryService {
         return result;
     }
 
-//    private String sendFillItemInventoryByFactoryCANRequest(FillItemInventoryByFactoryCANRequest request){
-//        //call soap client
-//        return "SENT_CAN";
-//    }
+    private String sendInventoryFillRequest(String itemId, FileInfo fileInfo){
+        //------- callback (security) -----
+        //                   String samlString = ""; //tokenProvider.getWSSecurityToken();
+        //                   WebServiceMessageCallback callBack = new WebServiceMessageCallbackImpl(samlString);
+        //                   ProvideInventoryCANResponse response = inventoryProviderWSClient.callInventoryProvider(itemId, fileInfo.getFileName(), callBack);
+        //------- callback (security) -----
+        ProvideInventoryCANResponse response = inventoryProviderWSClient.callInventoryProvider(itemId, fileInfo.getFileName());
+        String result = response.getReturn();
+        log.info("Sent CAN inventory fill request for id {}: result {}", itemId, result);
+        return result;
+    }
 
 }
