@@ -5,7 +5,10 @@ import com.ibssoln.shoppers.entity.Vendor;
 import com.ibssoln.shoppers.repo.ItemRepository;
 import com.ibssoln.shoppers.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class ItemDaoImpl {
@@ -26,6 +29,10 @@ public class ItemDaoImpl {
 
     public Item findById(String id){
         return itemRepository.findById(id).orElse(null);
+    }
+
+    public List<Item> getItemsByVendorName(String vendorName){
+        return itemRepository.getItemsByVendorName(vendorName);
     }
 
     public Item updateItemVendor(String itemId, String vendorId){

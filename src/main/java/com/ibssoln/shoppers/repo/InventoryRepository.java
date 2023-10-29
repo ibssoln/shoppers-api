@@ -14,6 +14,7 @@ public interface InventoryRepository extends CrudRepository<Inventory, Inventory
     @Query(value = "SELECT inventory FROM Inventory inventory where inventory.item.id = :itemId and inventory.stock < :stockLimit")
     List<Inventory> getInventoryByItemUnderLimit(@Param("itemId") String itemId, @Param("stockLimit") Long stockLimit);
 
-
+    @Query(value = "SELECT inventory FROM Inventory inventory where inventory.item.id = :itemId")
+    List<Inventory> getInventoryByItem(@Param("itemId") String itemId);
 
 }

@@ -12,8 +12,12 @@ public class InventoryDaoImpl {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    List<Inventory> getInventoryByItemUnderLimit(String itemId, Long stockLimit){
+    public List<Inventory> getInventoryByItemUnderLimit(String itemId, Long stockLimit){
         return inventoryRepository.getInventoryByItemUnderLimit(itemId, stockLimit);
+    }
+
+    public List<Inventory> getInventoryByItem(String itemId){
+        return inventoryRepository.getInventoryByItem(itemId);
     }
 
 }
