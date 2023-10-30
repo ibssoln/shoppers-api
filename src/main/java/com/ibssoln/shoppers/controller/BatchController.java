@@ -46,7 +46,7 @@ public class BatchController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/receipts", produces = {"application/json"}, consumes = {"application/json"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/receipts", produces = {"application/json"}, consumes = {"application/json"}, method = RequestMethod.POST)
     public ResponseEntity<Map<String, List<InventoryOrderReceipt>>> itemOrderReceipts(@RequestBody List<String> itemIds) throws ShoppersException {
         Map<String, List<InventoryOrderReceipt>> response;
         try {
