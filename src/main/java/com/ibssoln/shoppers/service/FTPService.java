@@ -23,6 +23,8 @@ import static org.apache.commons.lang3.StringUtils.join;
 @Service
 public class FTPService {
     private static final Logger log = LoggerFactory.getLogger(FTPService.class);
+    private static final List<String> COLUMNS = List.of("record_id", "item_id", "item_name", "store_id", "store_name", "store_order_code");
+
     private String host;
     private String port;
     private String user;
@@ -50,8 +52,6 @@ public class FTPService {
         }
         return FileInfo.builder().fileName(fileName).build();
     }
-
-    private static final List<String> COLUMNS = List.of("record_id", "item_id", "item_name", "store_id", "store_name", "store_order_code");
 
     private Long populateDataFile(File dataFile, List<Inventory> lowInventories, Map<String, String> shopOrderCodes) throws IOException {
         long index = 0;
