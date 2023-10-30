@@ -30,7 +30,8 @@ import java.util.stream.Collectors;
 public class BatchDaoImpl {
 
     private static final Logger log = LoggerFactory.getLogger(BatchService.class);
-    private static final String RECEIPTS_TARGET_URL = "http://localhost:8080/batch/receipts";
+    private static final String ORDER_RECEIPTS_TARGET_URL = "http://localhost:8080/info/order/receipts";
+    private static final String SHOP_CODES_TARGET_URL = "http://localhost:8080/info/shop/codes";
 
     @Autowired
     private InventoryDaoImpl inventoryDaoImpl;
@@ -44,12 +45,14 @@ public class BatchDaoImpl {
     public String batchSend(String itemId){
         String status = "OK";
         FileInfo fileInfo = null;
-        List<Inventory> inventoriesUnder10 = inventoryDaoImpl.getInventoryByItemUnderLimit(itemId, 10L);
         try{
+            List<Inventory> inventoriesUnder10 = inventoryDaoImpl.getInventoryByItemUnderLimit(itemId, 10L);
+            List<String > storeIds = inventoriesUnder10.stream().map(i -> i.getInventoryPK().getStoreId()).collect(Collectors.toList());
+            Map<String, String> shopOrderCodes = shopOrderCodes(storeIds);
             log.info("Item id {} is running low in {} number of stores.", itemId, inventoriesUnder10.size());
             if(!CollectionUtils.isEmpty(inventoriesUnder10)){
                 log.info("Sending a flat file for item id {}, # of stores running low: {}", itemId, inventoriesUnder10.size());
-                fileInfo = ftpService.sendFTP(itemId, inventoriesUnder10);
+                fileInfo = ftpService.sendInventoryOrderFTP(itemId, inventoriesUnder10, shopOrderCodes);
             }
         } catch (Exception e) {
             log.error("BatchSend - ftp a flat file failed.", e);
@@ -68,7 +71,7 @@ public class BatchDaoImpl {
         return status;
     }
 
-    Map<String, List<InventoryOrderReceipt>> getBulkReceipts(List<Inventory> inventories) {
+    private Map<String, List<InventoryOrderReceipt>> getBulkReceipts(List<Inventory> inventories) {
         Map<String, List<InventoryOrderReceipt>> responseMap = null;
         try{
             log.error("BulkReceipts requests started for {} number of inventories.", inventories.size());
@@ -77,13 +80,31 @@ public class BatchDaoImpl {
             objectMapper.registerModule(new JavaTimeModule());
             String requestBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(itemIds);
             HttpRequest httpRequest = HttpRequest.newBuilder().header("Content-Type", "application/json")
-                    .uri(new URI(RECEIPTS_TARGET_URL)).POST(HttpRequest.BodyPublishers.ofString(requestBody)).build();
+                    .uri(new URI(ORDER_RECEIPTS_TARGET_URL)).POST(HttpRequest.BodyPublishers.ofString(requestBody)).build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(httpRequest, HttpResponse.BodyHandlers.ofString());
             responseMap = objectMapper.readValue(response.body() , new TypeReference<Map<String, List<InventoryOrderReceipt>>>(){});
             log.info("bulkReceipts = "+responseMap);
         } catch (URISyntaxException | IOException | InterruptedException e) {
             e.printStackTrace();
             log.error("BulkReceipts requests failed.", e);
+        }
+        return responseMap;
+    }
+
+    private Map<String, String> shopOrderCodes(List<String> shopIds) {
+        Map<String, String> responseMap = null;
+        try{
+            log.error("Order codes requests started for {} number of shops.", shopIds.size());
+            ObjectMapper objectMapper = new ObjectMapper();
+            String requestBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(shopIds);
+            HttpRequest httpRequest = HttpRequest.newBuilder().header("Content-Type", "application/json")
+                    .uri(new URI(SHOP_CODES_TARGET_URL)).POST(HttpRequest.BodyPublishers.ofString(requestBody)).build();
+            HttpResponse<String> response = HttpClient.newHttpClient().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            responseMap = objectMapper.readValue(response.body() , new TypeReference<Map<String, String>>(){});
+            log.info("shops codes = "+responseMap);
+        } catch (URISyntaxException | IOException | InterruptedException e) {
+            e.printStackTrace();
+            log.error("Shop codes requests failed.", e);
         }
         return responseMap;
     }

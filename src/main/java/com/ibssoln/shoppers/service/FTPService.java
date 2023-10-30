@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import org.apache.commons.io.FileUtils;
 import com.google.common.collect.Lists;
@@ -28,12 +29,12 @@ public class FTPService {
     private String key;
     private String targetFilePath;
 
-    public FileInfo sendFTP(String itemId, List<Inventory> lowInventories) throws ShoppersException {
+    public FileInfo sendInventoryOrderFTP(String itemId, List<Inventory> lowInventories, Map<String, String> shopOrderCodes) throws ShoppersException {
         File dataFile = null;
         String fileName = null;
         try{
-            dataFile = File.createTempFile("request-", ".dat", null);
-            Long numStores = populateDataFile(dataFile, lowInventories);
+            dataFile = File.createTempFile("request-", ".dat", new File("C:/1-test"));
+            Long numStores = populateDataFile(dataFile, lowInventories, shopOrderCodes);
             fileName = "request-item-"+itemId+"-numStores-"+numStores+"-"+LocalDateTime.now()+".dat";
             scpFile(dataFile, fileName);
         } catch (IOException e) {
@@ -50,9 +51,9 @@ public class FTPService {
         return FileInfo.builder().fileName(fileName).build();
     }
 
-    private static final List<String> COLUMNS = List.of("record_id", "item_id", "item_name", "store_id", "store_name", "store_address");
+    private static final List<String> COLUMNS = List.of("record_id", "item_id", "item_name", "store_id", "store_name", "store_order_code");
 
-    private Long populateDataFile(File dataFile, List<Inventory> lowInventories) throws IOException {
+    private Long populateDataFile(File dataFile, List<Inventory> lowInventories, Map<String, String> shopOrderCodes) throws IOException {
         long index = 0;
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile))){
             String columnHeader = join(COLUMNS.toArray(), "|");
@@ -61,7 +62,7 @@ public class FTPService {
                 index++;
                 writer.newLine();
                 List<String> data = Lists.newArrayList(Long.toString(index), inventory.getItem().getId(), inventory.getItem().getName(),
-                        inventory.getStore().getId(), inventory.getStore().getName(), inventory.getStore().getAddress());
+                        inventory.getStore().getId(), inventory.getStore().getName(), shopOrderCodes.get(inventory.getStore().getId()));
                 String row = join(data, "|");
                 writer.write(row);
             }
