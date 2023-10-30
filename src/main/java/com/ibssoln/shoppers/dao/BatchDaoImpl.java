@@ -1,5 +1,9 @@
 package com.ibssoln.shoppers.dao;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.ibssoln.shoppers.dto.InventoryOrderReceipt;
 import com.ibssoln.shoppers.entity.Inventory;
 import com.ibssoln.shoppers.service.BatchService;
 import com.ibssoln.shoppers.service.FTPService;
@@ -12,12 +16,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class BatchDaoImpl {
 
     private static final Logger log = LoggerFactory.getLogger(BatchService.class);
+    private static final String RECEIPTS_TARGET_URL = "http://localhost:8080/batch/receipts";
+
     @Autowired
     private InventoryDaoImpl inventoryDaoImpl;
 
@@ -53,4 +67,25 @@ public class BatchDaoImpl {
         }
         return status;
     }
+
+    Map<String, List<InventoryOrderReceipt>> getBulkReceipts(List<Inventory> inventories) {
+        Map<String, List<InventoryOrderReceipt>> responseMap = null;
+        try{
+            log.error("BulkReceipts requests started for {} number of inventories.", inventories.size());
+            List<String> itemIds = inventories.stream().map(i -> i.getItem().getId()).collect(Collectors.toList());
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String requestBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(itemIds);
+            HttpRequest httpRequest = HttpRequest.newBuilder().header("Content-Type", "application/json")
+                    .uri(new URI(RECEIPTS_TARGET_URL)).POST(HttpRequest.BodyPublishers.ofString(requestBody)).build();
+            HttpResponse<String> response = HttpClient.newHttpClient().send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            responseMap = objectMapper.readValue(response.body() , new TypeReference<Map<String, List<InventoryOrderReceipt>>>(){});
+            log.info("bulkReceipts = "+responseMap);
+        } catch (URISyntaxException | IOException | InterruptedException e) {
+            e.printStackTrace();
+            log.error("BulkReceipts requests failed.", e);
+        }
+        return responseMap;
+    }
+
 }
