@@ -10,19 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
-public class BookingService {
-    private static final Logger log = LoggerFactory.getLogger(BookingService.class);
+public class InfoService {
+    private static final Logger log = LoggerFactory.getLogger(InfoService.class);
 
     @Autowired
     private InventoryDaoImpl inventoryDaoImpl;
 
-    public Map<String, List<InventoryOrderReceipt>> getItemOrderReceipts(List<String> itemIds){
+    public Map<String, List<InventoryOrderReceipt>> getItemInventoryOrderReceipts(List<String> itemIds){
         Map<String, List<InventoryOrderReceipt>> receiptMap = new HashMap<>();
         itemIds.stream().forEach(itemId -> {
             List<Inventory> inventories = inventoryDaoImpl.getInventoryByItemUnderLimit(itemId, 10L);
@@ -38,6 +35,12 @@ public class BookingService {
             receiptMap.put(itemId, receipts);
         });
         return receiptMap;
+    }
+
+    public Map<String, String> getShopOrderApprovalCodes(List<String> shopIds){
+        Map<String, String> codes = new HashMap<>();
+        shopIds.stream().forEach(shopId -> {codes.put(shopId, UUID.randomUUID().toString()+LocalDateTime.now());});
+        return codes;
     }
 
 }
