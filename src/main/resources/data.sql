@@ -1,5 +1,11 @@
 INSERT INTO VENDOR VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'DecoFactory', '1234 Main St. Toronto, Ontario, CA', 'CAN');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07f', 'Wood Table', 119.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07a', 'Towel Set', 99.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07b', 'Deco Box', 98.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07c', 'Metal Table', 79.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07d', 'Mirror', 189.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07e', 'Drawer', 1089.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
+INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07g', 'Wood Chair', 669.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', 'Walmart', '9876 Maple St. Washington, Washington, US');
 INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', 'Home Depo', '5555 Chest St. L.A, California, US');
 INSERT INTO INVENTORY VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', '7579eae4-9877-48e8-9983-f50eaad2a07f', 5);
