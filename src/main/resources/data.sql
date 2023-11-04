@@ -7,15 +7,15 @@ INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07d', 'Mirror', 189.9
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07e', 'Drawer', 1089.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07g', 'Wood Chair', 669.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', 'Walmart', '9876 Maple St. Washington, Washington, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', 'Home Depo', '5555 Chest St. L.A, California, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df3', 'Home Depo', '1111 Bear St. Austin, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df4', 'Home Depo', '2222 Yellow St. L.A, California, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df5', 'Home Depo', '3333 Hamstring St. Texas City, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'Home Depo', '4444 Avery St. Austin, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df7', 'Home Depo', '6666 Fleet St. City, New York, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df8', 'Home Depo', '7777 John St. City, New York, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df9', 'Home Depo', '8888 Walnut St. L.A, California, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07dg1', 'Home Depo', '9999 Apple St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', 'Dollarama', '5555 Chest St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df3', 'No Frills', '1111 Bear St. Austin, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df4', 'LCBO', '2222 Yellow St. Toronto, Ontario, CAN');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df5', 'Giant Tiger', '3333 Hamstring St. Texas City, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'Bulk Barn', '4444 Avery St. Austin, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df7', 'Toys R Us', '6666 Fleet St. City, New York, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df8', 'Costco', '7777 John St. City, New York, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df9', 'Staples', '8888 Walnut St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07dg1', 'Nature', '9999 Apple St. L.A, California, US');
 INSERT INTO INVENTORY VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', '7579eae4-9877-48e8-9983-f50eaad2a07f', 5);
 INSERT INTO INVENTORY VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', '7579eae4-9877-48e8-9983-f50eaad2a07f', 3);
 
