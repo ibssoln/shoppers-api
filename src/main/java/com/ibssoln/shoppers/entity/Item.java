@@ -31,4 +31,10 @@ public class Item implements Serializable {
     @JoinColumn(name="vendor_id")
     private Vendor vendor;
 
+    @Column(name = "special_deal")
+    private String specialDeal;
+
+    @Column(name = "image")
+    private String image;
+
 }

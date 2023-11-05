@@ -33,6 +33,8 @@ CREATE TABLE ITEM (
     name varchar(255),
     price number(10, 2),
     vendor_id varchar(36),
+    special_deal char(1),
+    image varchar(125),
     PRIMARY KEY (item_id),
     CONSTRAINT FK_ItemVendor FOREIGN KEY (vendor_id) REFERENCES VENDOR(vendor_id)
 );
