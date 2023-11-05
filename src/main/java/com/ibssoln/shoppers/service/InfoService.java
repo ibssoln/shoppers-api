@@ -1,7 +1,10 @@
 package com.ibssoln.shoppers.service;
 
+import com.ibssoln.shoppers.dao.CategoryDaoImpl;
 import com.ibssoln.shoppers.dao.InventoryDaoImpl;
 import com.ibssoln.shoppers.dto.InventoryOrderReceipt;
+import com.ibssoln.shoppers.dto.StoreDTO;
+import com.ibssoln.shoppers.entity.Category;
 import com.ibssoln.shoppers.entity.Inventory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +21,9 @@ public class InfoService {
 
     @Autowired
     private InventoryDaoImpl inventoryDaoImpl;
+
+    @Autowired
+    private CategoryDaoImpl categoryDaoImpl;
 
     public Map<String, List<InventoryOrderReceipt>> getItemInventoryOrderReceipts(List<String> itemIds){
         Map<String, List<InventoryOrderReceipt>> receiptMap = new HashMap<>();
@@ -42,5 +48,6 @@ public class InfoService {
         shopIds.stream().forEach(shopId -> {codes.put(shopId, UUID.randomUUID().toString()+LocalDateTime.now());});
         return codes;
     }
+
 
 }

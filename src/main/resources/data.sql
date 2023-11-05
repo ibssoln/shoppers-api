@@ -1,3 +1,8 @@
+INSERT INTO CATEGORY VALUES ('1aaa4389-d799-4f3a-bb20-135c3eb07da1', 'Grocery', 'grocery.jpg');
+INSERT INTO CATEGORY VALUES ('1aaa4389-d799-4f3a-bb20-135c3eb07da2', 'Toy', 'toy.jpg');
+INSERT INTO CATEGORY VALUES ('1aaa4389-d799-4f3a-bb20-135c3eb07da3', 'Pet', 'pet.jpg');
+INSERT INTO CATEGORY VALUES ('1aaa4389-d799-4f3a-bb20-135c3eb07da4', 'Beauty', 'beauty.jpg');
+INSERT INTO CATEGORY VALUES ('1aaa4389-d799-4f3a-bb20-135c3eb07da5', 'House', 'house.jpg');
 INSERT INTO VENDOR VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'DecoFactory', '1234 Main St. Toronto, Ontario, CA', 'CAN');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07f', 'Wood Table', 119.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07a', 'Towel Set', 99.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
