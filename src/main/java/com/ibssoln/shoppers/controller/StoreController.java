@@ -3,6 +3,7 @@ package com.ibssoln.shoppers.controller;
 import com.ibssoln.shoppers.dao.InventoryDaoImpl;
 import com.ibssoln.shoppers.dao.StoreDaoImpl;
 import com.ibssoln.shoppers.domain.exception.ShoppersException;
+import com.ibssoln.shoppers.dto.StoreDTO;
 import com.ibssoln.shoppers.entity.Item;
 import com.ibssoln.shoppers.entity.Store;
 import com.ibssoln.shoppers.service.StoreService;
@@ -25,8 +26,8 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
     @RequestMapping(value = "/stores", method = RequestMethod.GET)
-    public ResponseEntity<List<Store>> getStores() throws ShoppersException {
-        List<Store> stores = new ArrayList<>();
+    public ResponseEntity<List<StoreDTO>> getStores() throws ShoppersException {
+        List<StoreDTO> stores = new ArrayList<>();
         try {
             stores = storeService.getAllStores();
         }catch (Exception e){

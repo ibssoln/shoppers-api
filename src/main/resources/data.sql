@@ -6,16 +6,16 @@ INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07c', 'Metal Table', 
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07d', 'Mirror', 189.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07e', 'Drawer', 1089.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
 INSERT INTO ITEM VALUES ('7579eae4-9877-48e8-9983-f50eaad2a07g', 'Wood Chair', 669.95, '6aaa4389-d799-4f3a-bb20-135c3eb07df6');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', 'Walmart', '9876 Maple St. Washington, Washington, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', 'Dollarama', '5555 Chest St. L.A, California, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df3', 'No Frills', '1111 Bear St. Austin, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df4', 'LCBO', '2222 Yellow St. Toronto, Ontario, CAN');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df5', 'Giant Tiger', '3333 Hamstring St. Texas City, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'Bulk Barn', '4444 Avery St. Austin, Texas, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df7', 'Toys R Us', '6666 Fleet St. City, New York, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df8', 'Costco', '7777 John St. City, New York, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df9', 'Staples', '8888 Walnut St. L.A, California, US');
-INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07dg1', 'Nature', '9999 Apple St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', 'Walmart', 'walmart.jpg', '2023-11-05T01:20:13.479623900Z', '2023-11-04 21:00:00-02:00', '9876 Maple St. Washington, Washington, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', 'Dollarama', 'dollarama.jpg', '2023-11-05T01:20:13.479623900Z', '2023-11-04 21:00:00-02:00', '5555 Chest St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df3', 'No Frills', 'nofrills.jpg', CURRENT_TIMESTAMP, '2023-11-04 21:00:00-02:00', '1111 Bear St. Austin, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df4', 'LCBO', 'lcbo.jpg', CURRENT_TIMESTAMP, '2023-11-04 21:00:00-02:00', '2222 Yellow St. Toronto, Ontario, CAN');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df5', 'Giant Tiger', 'gianttiger.jpg', CURRENT_DATE, '2023-11-04 21:00:00-02:00', '3333 Hamstring St. Texas City, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df6', 'Bulk Barn', 'bulkbarn.jpg', CURRENT_DATE, '2023-11-04 21:00:00-02:00', '4444 Avery St. Austin, Texas, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df7', 'Toys R Us', 'toysrus.jpg', '2023-11-04 21:00:00-02:00', '2023-11-04 21:00:00-02:00', '6666 Fleet St. City, New York, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df8', 'Body Shop', 'bodyshop.jpg', '2023-11-04 21:00:00-02:00', '2023-11-04 21:00:00-02:00', '7777 John St. City, New York, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df9', 'Staples', 'staples.jpg', '2023-11-04 21:00:00-02:00', '2023-11-04 21:00:00-02:00', '8888 Walnut St. L.A, California, US');
+INSERT INTO STORE VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07dg1', 'Nature''s Emporium', 'naturesemporium.jpg', '2023-11-04 21:00:00-02:00', '2023-11-04 21:00:00-02:00', '9999 Apple St. L.A, California, US');
 INSERT INTO INVENTORY VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df1', '7579eae4-9877-48e8-9983-f50eaad2a07f', 5);
 INSERT INTO INVENTORY VALUES ('6aaa4389-d799-4f3a-bb20-135c3eb07df2', '7579eae4-9877-48e8-9983-f50eaad2a07f', 3);
 

@@ -6,6 +6,9 @@ DROP TABLE IF EXISTS STORE;
 CREATE TABLE STORE (
     store_id varchar(36) NOT NULL,
     name varchar(255),
+    image varchar(125),
+    open_until TIMESTAMP WITH TIME ZONE,
+    registered_at TIMESTAMP WITH TIME ZONE,
     address varchar(255),
     PRIMARY KEY (store_id)
 );
