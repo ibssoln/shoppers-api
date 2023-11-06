@@ -32,6 +32,8 @@ public class ItemService {
         return (List<Item>) itemDaoImpl.getSpecialItems();
     }
 
-
+    public List<Item> getItemsByStoreId(String storeId){
+        return (List<Item>) itemDaoImpl.getItemsByStoreId(storeId);
+    }
 
 }

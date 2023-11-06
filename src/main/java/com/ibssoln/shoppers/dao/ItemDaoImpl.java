@@ -49,6 +49,10 @@ public class ItemDaoImpl {
         return itemRepository.getSpecialItems();
     }
 
+    public List<Item> getItemsByStoreId(String storeId){
+        return itemRepository.getItemsByStoreId(storeId);
+    }
+
     public long getCountAllItems(){
         return itemRepository.count();
     }
