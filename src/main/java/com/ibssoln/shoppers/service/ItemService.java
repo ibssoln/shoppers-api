@@ -28,4 +28,10 @@ public class ItemService {
         return (List<Item>) itemDaoImpl.getAll();
     }
 
+    public List<Item> getSpecialItems(){
+        return (List<Item>) itemDaoImpl.getSpecialItems();
+    }
+
+
+
 }

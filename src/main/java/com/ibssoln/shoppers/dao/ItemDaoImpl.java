@@ -45,6 +45,10 @@ public class ItemDaoImpl {
         return itemRepository.findAll();
     }
 
+    public List<Item> getSpecialItems(){
+        return itemRepository.getSpecialItems();
+    }
+
     public long getCountAllItems(){
         return itemRepository.count();
     }

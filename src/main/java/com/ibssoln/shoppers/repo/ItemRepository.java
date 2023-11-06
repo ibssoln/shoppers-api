@@ -14,6 +14,7 @@ public interface ItemRepository extends CrudRepository<Item, String> {
     @Query(value = "SELECT item FROM Item item where item.vendor.name = :vm")
     List<Item> getItemsByVendorName(@Param("vm") String vendorName);
 
-
+    @Query(value = "SELECT item FROM Item item where item.specialDeal = 'Y'")
+    List<Item> getSpecialItems();
 
 }

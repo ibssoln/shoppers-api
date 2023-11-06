@@ -36,5 +36,15 @@ public class ProductController {
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/special/items", method = RequestMethod.GET)
+    public ResponseEntity<List<Item>> getSpecialItems() throws ShoppersException {
+        List<Item> items = new ArrayList<>();
+        try {
+            items = itemService.getSpecialItems();
+        }catch (Exception e){
+            throw new ShoppersException("Error occurred while updating inventory.");
+        }
+        return new ResponseEntity<>(items, HttpStatus.OK);
+    }
 
 }
