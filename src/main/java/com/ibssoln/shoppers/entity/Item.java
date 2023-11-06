@@ -37,4 +37,11 @@ public class Item implements Serializable {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "weight")
+    private String weight;
+
+    @ManyToOne
+    @JoinColumn(name="event_id")
+    private Event event;
+
 }

@@ -1,8 +1,9 @@
-DROP TABLE IF EXISTS CATEGORY;
 DROP TABLE IF EXISTS INVENTORY;
 DROP TABLE IF EXISTS ITEM;
+DROP TABLE IF EXISTS EVENT;
 DROP TABLE IF EXISTS VENDOR;
 DROP TABLE IF EXISTS STORE;
+DROP TABLE IF EXISTS CATEGORY;
 
 CREATE TABLE  CATEGORY(
     category_id varchar(36) NOT NULL,
@@ -28,6 +29,14 @@ CREATE TABLE VENDOR (
     PRIMARY KEY (vendor_id)
 );
 
+CREATE TABLE  EVENT(
+    event_id varchar(36) NOT NULL,
+    name varchar(255),
+    start_date TIMESTAMP WITH TIME ZONE,
+    end_date TIMESTAMP WITH TIME ZONE,
+    PRIMARY KEY (event_id)
+);
+
 CREATE TABLE ITEM (
     item_id varchar(36) NOT NULL,
     name varchar(255),
@@ -35,8 +44,11 @@ CREATE TABLE ITEM (
     vendor_id varchar(36),
     special_deal char(1),
     image varchar(125),
+    weight varchar(125),
+    event_id varchar(36),
     PRIMARY KEY (item_id),
-    CONSTRAINT FK_ItemVendor FOREIGN KEY (vendor_id) REFERENCES VENDOR(vendor_id)
+    CONSTRAINT FK_ItemVendor FOREIGN KEY (vendor_id) REFERENCES VENDOR(vendor_id),
+    CONSTRAINT FK_ItemEvent FOREIGN KEY (event_id) REFERENCES EVENT(event_id)
 );
 
 CREATE TABLE INVENTORY (
