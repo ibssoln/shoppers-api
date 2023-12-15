@@ -31,7 +31,7 @@ environment:
   http_client_tag_query_string: true
   http_server_tag_query_string: true
   trace_analytics_enabled: true
-  trace_db_client_split_by_instance: true
+  trace_db_client: true
   trace_agent_enabled: true
   jms_analytics_enabled: true
   jdbc_analytics_enabled: true
