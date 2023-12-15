@@ -1,0 +1,21 @@
+DevToolkitFormatVersion: 1.0.0
+TemplateVersion: 1
+Description: "Shoppers API Template"
+Resources:
+  Inbound:
+    Adapter:
+      Service:
+        Type: rest
+        Properties:
+          skipGeneration: false
+          apiSpec: "https://swagger-sp.com/api/1.0.0/"
+
+#  Outbound:
+#    Adapter:
+#      Service:
+#        Type: rest
+#        Properties:
+#          apiSpec: "https://swagger-sp.com/api/1.0.0/"
+#          contextSource:
+#          authorizationType:
+#          includeInSource: true
